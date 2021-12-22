@@ -30,7 +30,7 @@ app.get("/api/candidates", (req, res) => {
              LEFT JOIN parties 
              ON candidates.party_id = parties.id`;
 
-  db.query(`SELECT * FROM candidates`, (err, rows) => {
+  db.query(sql, (err, rows) => {
     if (err) {
       res.status(500).json({ error: err.message });
       return;
